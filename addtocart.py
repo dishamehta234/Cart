@@ -9,80 +9,108 @@ def Cart(request):
    showdata = ['<title>Cart Details</title>']
  
    showdata.append('''
-       <script language="JavaScript">
-           function showInput() {
-                   document.getElementById('display').innerHTML =
-                   document.getElementByName("h1");
-           }
-       </script>
-       <div id="header">
-       		<h1>
-       			Product Details
-       			<i align="right"><input type="text" id="searchdata" size="20" placeholder="Serach Product"/></i>
-       		</h1>       				
-       </div>
-       <div id="mainprodutcs">
-       	<div id="productline1">
-       		<table>
-	       		<tr>
-	       		<td>
-		       		<div id="product1" padding="5px">
-		       			<img src="../Pictures/orange.jpg" alt="Orange" height="50px" width="50px"  align="center"/>
-		       			<h1>Oranges</h1>
-		       			<h3>Price : 60 Rs/Kg</h3>
-		       			<i> <input type="submit" name="product1" value="Add To Cart"> </i>
-		       		</div>
-		       	</td>
-		       	<td>
-		       		<div id="product2">
-		       		    <img  src="../Pictures/orange.jpg" alt="Apple" height="50px" width="50px" src="" align="center"/>
-		       			<h1>Apple</h1>
-		       			<h3>Price : 80 Rs/Kg</h3>
-		       			<i> <input type="submit" name="product2" value="Add To Cart"> </i>
-		       		</div>
-		       	</td>
-		       	<td>
-		       		<div id="product3">
-		       		    <img  src="../Pictures/orange.jpg" alt="Apple" height="50px" width="50px" src="" align="center"/>
-		       			<h1>Grapes</h1>
-		       			<h3>Price : 180 Rs/Kg</h3>
-		       			<i> <input type="submit" name="product3" value="Add To Cart"> </i>
-		       		</div>
-		       	</td>
-	       		</tr>
-	       		<tr>
-	       		<td>
-		       		<div id="product4" padding="5px">
-		       			<img src="../Pictures/orange.jpg" alt="Strawbery" height="50px" width="50px"  align="center"/>
-		       			<h1>Strawbery</h1>
-		       			<h3>Price : 160 Rs/Kg</h3>
-		       			<i> <input type="submit" name="product4" value="Add To Cart"> </i>
-		       		</div>
-		       	</td>
-		       	<td>
-		       		<div id="product5">
-		       		    <img  src="../Pictures/orange.jpg" alt="GreenApple" height="50px" width="50px" src="" align="center"/>
-		       			<h1>Apple</h1>
-		       			<h3>Price : 80 Rs/Kg</h3>
-		       			<i> <input type="submit" name="product2" value="Add To Cart"> </i>
-		       		</div>
-		       	</td>
-		       	<td>
-		       		<div id="product6">
-		       		    <img  src="../Pictures/orange.jpg" alt="Banana" height="50px" width="50px" src="" align="center"/>
-		       			<h1>Grapes</h1>
-		       			<h3>Price : 180 Rs/Kg</h3>
-		       			<i> <input type="submit" name="product6" value="Add To Cart"> </i>
-		       		</div>
-		       	</td>
-	       		</tr>
-       		</table>
-       	</div>
-       </div>
-
-      
-   ''')
+    <html>
+       <head>
+     
+       <script language="javascript">
+           var orangequanti = document.getElementById('Q1').value="";
+           var applequanti = document.getElementById('Q2').value="";
+           var grapesquanti = document.getElementById('Q3').value="";
+        function orange(){
+            
+            if(orangequanti==0)
+            {
+              document.getElementById('error').innerHTML="Please Enter Quantity";
+            }
+            else
+            {
+             var orgtot=orangequanti*150;
+            document.getElementById('qua1').innerHTML= "oranges ->   " + orangequanti +"  *150  =" + orgtot+ "<input type='button' id='remove1' value='Remove' onclick='removeOrange()'><br><br>";
+            }
+          }
+          function removeOrange(){
+              document.getElementById('Q1').value="";
+              document.getElementById('qua1').innerHTML="";
+          }
+          function apple(){
+            
+            if(applequanti==0)
+            {
+              document.getElementById('error1').innerHTML="Please Enter Quantity";
+            }
+            else
+            {
+             var apptot=applequanti*200 ;
+              document.getElementById('qua2').innerHTML= "Apple ->   " + applequanti +"  *200  =" +ans + "<input type='button' id='remove2' value='Remove' onclick='removeApple()'><br><br>";
+            }   
+          }
+          function removeApple(){
+              document.getElementById('Q2').value="";
+              document.getElementById('qua2').innerHTML="";
+          }
+          function grapes(){
+            
+            if(grapesquanti==0)
+            {
+              document.getElementById('error2').innerHTML="Please Enter Quantity";
+            }
+            else
+            {
+              var graptotl=grapesquanti*70;
+              document.getElementById('qua3').innerHTML= "Grapes ->   " + grapesquanti +"  *70  =" + graptotl+ "<input type='button' id='remove3' value='Remove' onclick='removeGrapes()'><br><br>";
+            }   
+          }
+          function removeGrapes(){
+              document.getElementById('Q3').value="";
+              document.getElementById('qua3').innerHTML="";
+          }
+          function billtotal()
+          {
+               var final = orgtot + apptot + graptotl;
+               document.getElementById('bill').innerHTML=final;
+          }
+        </script>
+        </head>
+        <body bgcolor="skyblue">
+       <table>
+       <tr>
+        <td>
+                  <img src="orange.jpg" alt="Oranges" height="50px" width="50px"/>
+                  <h3>Orange<br>150 Rs/Kg</h3>
+                  <input type="text" placeholder="Quantity" id="Q1">
+                  <input type="submit" value="Add to Cart" onclick="orange()">
+                  <span id="error"></span>
+             </td>
+        <td align="right"><i id="qua1"></i></td>
+        </tr>
+        <tr>
+        <td>
+                  <img src="Apple.jpg" alt="Apples" height="50px" width="50px" />
+                  <h3>Apple<br>200 Rs/Kg</h3>
+                  <input type="text" placeholder="Quantity" id="Q2">
+                  <input type="submit" value="Add to Cart" onclick="apple()">     
+                  <span id="error1"></span>
+             </td>
+             <td align="right"><i id="qua2"></i></td>
+        </tr>
+         <tr>
+        <td>
+                  <img src="grapes.jpg" alt="Grapes" height="50px" width="50px" />
+                  <h3>Grapes<br>70 Rs/Kg</h3>
+                  <input type="text" placeholder="Quantity" id="Q3">
+                  <input type="submit" value="Add to Cart" onclick="grapes()">                  
+                  <span id="error2"></span>
+             </td>
+            <td align="right"><i id="qua3"></i></td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="Generate Bill" id="bill" onclick="billtotal()"></td>
+        </tr>
+        </table>
+       </body>
+      </html>
+    ''')
    return Response(''.join(showdata), mimetype='text/html')
 if __name__ == '__main__':
    from werkzeug.serving import run_simple
-   run_simple('localhost',4000, Cart)
+   run_simple('localhost', 4000, Cart)
