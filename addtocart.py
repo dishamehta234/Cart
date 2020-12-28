@@ -13,11 +13,9 @@ def Cart(request):
        <head>
      
        <script language="javascript">
-           var orangequanti = document.getElementById('Q1').value="";
-           var applequanti = document.getElementById('Q2').value="";
-           var grapesquanti = document.getElementById('Q3').value="";
-        function orange(){
             
+        function orange(){
+            var orangequanti = document.getElementById('Q1').value;
             if(orangequanti==0)
             {
               document.getElementById('error').innerHTML="Please Enter Quantity";
@@ -33,7 +31,7 @@ def Cart(request):
               document.getElementById('qua1').innerHTML="";
           }
           function apple(){
-            
+            var applequanti = document.getElementById('Q2').value;
             if(applequanti==0)
             {
               document.getElementById('error1').innerHTML="Please Enter Quantity";
@@ -41,7 +39,7 @@ def Cart(request):
             else
             {
              var apptot=applequanti*200 ;
-              document.getElementById('qua2').innerHTML= "Apple ->   " + applequanti +"  *200  =" +ans + "<input type='button' id='remove2' value='Remove' onclick='removeApple()'><br><br>";
+              document.getElementById('qua2').innerHTML= "Apple ->   " + applequanti +"  *200  =" +apptot + "<input type='button' id='remove2' value='Remove' onclick='removeApple()'><br><br>";
             }   
           }
           function removeApple(){
@@ -49,7 +47,7 @@ def Cart(request):
               document.getElementById('qua2').innerHTML="";
           }
           function grapes(){
-            
+            var grapesquanti = document.getElementById('Q3').value;
             if(grapesquanti==0)
             {
               document.getElementById('error2').innerHTML="Please Enter Quantity";
@@ -63,11 +61,6 @@ def Cart(request):
           function removeGrapes(){
               document.getElementById('Q3').value="";
               document.getElementById('qua3').innerHTML="";
-          }
-          function billtotal()
-          {
-               var final = orgtot + apptot + graptotl;
-               document.getElementById('bill').innerHTML=final;
           }
         </script>
         </head>
@@ -102,9 +95,6 @@ def Cart(request):
                   <span id="error2"></span>
              </td>
             <td align="right"><i id="qua3"></i></td>
-        </tr>
-        <tr>
-          <td><input type="submit" value="Generate Bill" id="bill" onclick="billtotal()"></td>
         </tr>
         </table>
        </body>
