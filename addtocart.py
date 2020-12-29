@@ -11,7 +11,6 @@ def Cart(request):
    showdata.append('''
     <html>
        <head>
-     
        <script language="javascript">
             
         function orange(){
