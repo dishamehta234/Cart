@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+body {	
+  font-family: Arial;
+  padding: 10px;
+  background-color: #ffffb3;
+  * {box-sizing: border-box;}
+}
+
+.header {
+  font-size:50px;
+  text-align:center;
+  background-color: #b3ecff;
+  font-style: italic;
+  padding: 30px;
+  margin: 10px 40px 60px 30px;
+  border-radius: 50px;
+}
+.btn{
+	font-size:20px;
+	margin: 20px 10px 10px 60px;
+}
+.products {
+    float: left;
+    width: 30%;
+    font-style: italic;
+    text-align: justify;
+    padding:5px 10px;
+   margin: 10px 40px 60px 30px;
+   background-color: #99e6ff;
+   border-radius: 15px;
+}
+.priceprd{
+  text-align: right;
+}
+.cartitems {
+  float: right; 
+  text-align: center;
+  border-radius:10px;
+  background-color: #99e6ff; 
+  width:25%;
+  margin: 0px 0px 20px 0px;
+ cursor: pointer;
+}
+.amttotal{
+  text-align: center;
+  margin-top: 30px;
+}
+.task {
+  font-size: 18px;
+}
+
+
+.task:hover {
+	background-color: #def0ff;
+}
+.cartstore {
+	font-size:20px;
+	cursor: pointer;
+}	
+
+/* Right column */
+
+.row:after {
+  content: "";
+  display: table;
+
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 1000px) {
+  .products, .cartitems {   
+    width: 700%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
